@@ -1,0 +1,208 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    background:url("background.png") no-repeat center center;
+    background-size:cover;
+    background-attachment:fixed;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Light Overlay */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.12);
+    z-index:1;
+}
+
+/* Main Layout */
+.main{
+    position:relative;
+    z-index:2;
+    width:100%;
+    height:100vh;
+    display:flex;
+}
+
+/* Left Side Empty (Background Visible) */
+.left{
+    flex:1;
+}
+
+/* Right Side Card */
+.right{
+    width:480px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* Glass Card */
+.glass{
+    width:100%;
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    color:#fff;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.35);
+
+    animation:fadeIn 1.2s ease;
+}
+
+.logo{
+    font-size:40px;
+    font-weight:800;
+    color:#00d4ff;
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.text{
+    color:#f2f2f2;
+    line-height:1.8;
+    margin-bottom:25px;
+    font-size:16px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.box{
+    background:rgba(255,255,255,.08);
+    padding:18px;
+    text-align:center;
+    border-radius:15px;
+    transition:.35s;
+}
+
+.box:hover{
+    background:rgba(0,212,255,.18);
+    transform:translateY(-6px);
+}
+
+.box h3{
+    margin-top:8px;
+    margin-bottom:5px;
+    color:#00d4ff;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.buttons a{
+    flex:1;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    padding:14px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.email{
+    background:#0d6efd;
+}
+
+.whatsapp{
+    background:#25D366;
+}
+
+.buttons a:hover{
+    transform:scale(1.05);
+}
+
+.contact{
+    text-align:center;
+    line-height:2;
+    margin-top:10px;
+}
+
+.footer{
+    margin-top:25px;
+    text-align:center;
+    color:#ddd;
+    font-size:14px;
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:900px){
+
+.main{
+    flex-direction:column;
+}
+
+.left{
+    display:none;
+}
+
+.right{
+    width:100%;
+    height:100%;
+    padding:20px;
+}
+
+.glass{
+    padding:25px;
+}
+
+.features{
+    grid-template-columns:1fr;
+}
+
+.buttons{
+    flex-direction:column;
+}
+
+.logo{
+    font-size:30px;
+}
+
+h1{
+    font-size:24px;
+}
+
+}
