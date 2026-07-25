@@ -11,198 +11,307 @@ html,body{
 }
 
 body{
-    background:url("background.png") no-repeat center center;
+    background:url("background.png") center center no-repeat;
     background-size:cover;
     background-attachment:fixed;
     overflow:hidden;
     position:relative;
 }
 
-/* Light Overlay */
+/* Dark Overlay */
+
 .overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.12);
-    z-index:1;
+    background:rgba(0,0,0,.18);
+    backdrop-filter:blur(1px);
 }
 
 /* Main Layout */
-.main{
+
+.hero{
     position:relative;
     z-index:2;
     width:100%;
     height:100vh;
     display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-/* Left Side Empty (Background Visible) */
+/* Left Side */
+
 .left{
     flex:1;
 }
 
-/* Right Side Card */
+/* Right Side */
+
 .right{
-    width:480px;
+    width:430px;
+    margin-right:60px;
     display:flex;
     justify-content:center;
-    align-items:center;
-    padding:30px;
 }
 
-/* Glass Card */
-.glass{
+/* Premium Card */
+
+.card{
+
     width:100%;
-    background:rgba(255,255,255,.10);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:25px;
 
     padding:35px;
 
+    border-radius:25px;
+
+    background:rgba(12,18,30,.45);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 0 30px rgba(0,212,255,.15),
+    0 20px 60px rgba(0,0,0,.45);
+
     color:#fff;
 
-    box-shadow:0 15px 45px rgba(0,0,0,.35);
+    animation:fade 1s ease;
 
-    animation:fadeIn 1.2s ease;
 }
 
-.logo{
-    font-size:40px;
-    font-weight:800;
-    color:#00d4ff;
-    margin-bottom:10px;
+/* Badge */
+
+.badge{
+
+display:inline-block;
+
+padding:8px 18px;
+
+background:#00d4ff;
+
+color:#000;
+
+font-weight:700;
+
+border-radius:50px;
+
+margin-bottom:18px;
+
 }
+
+/* Headings */
 
 h1{
-    font-size:30px;
-    margin-bottom:15px;
+
+font-size:48px;
+
+color:#00d4ff;
+
+margin-bottom:5px;
+
 }
 
-.text{
-    color:#f2f2f2;
-    line-height:1.8;
-    margin-bottom:25px;
-    font-size:16px;
+h2{
+
+font-size:24px;
+
+margin-bottom:20px;
+
 }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-bottom:25px;
+.card p{
+
+line-height:1.8;
+
+font-size:15px;
+
+color:#ddd;
+
 }
 
-.box{
-    background:rgba(255,255,255,.08);
-    padding:18px;
-    text-align:center;
-    border-radius:15px;
-    transition:.35s;
+/* Feature Grid */
+
+.feature{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+margin:30px 0;
+
 }
 
-.box:hover{
-    background:rgba(0,212,255,.18);
-    transform:translateY(-6px);
+.feature div{
+
+background:rgba(255,255,255,.06);
+
+padding:15px;
+
+border-radius:12px;
+
+text-align:center;
+
+transition:.35s;
+
 }
 
-.box h3{
-    margin-top:8px;
-    margin-bottom:5px;
-    color:#00d4ff;
+.feature div:hover{
+
+background:rgba(0,212,255,.18);
+
+transform:translateY(-6px);
+
 }
+
+/* Buttons */
 
 .buttons{
-    display:flex;
-    gap:15px;
-    margin-bottom:25px;
+
+display:flex;
+
+gap:12px;
+
+margin-top:10px;
+
 }
 
 .buttons a{
-    flex:1;
-    text-align:center;
-    text-decoration:none;
-    color:#fff;
-    padding:14px;
-    border-radius:10px;
-    font-weight:600;
-    transition:.3s;
+
+flex:1;
+
+padding:15px;
+
+text-decoration:none;
+
+border-radius:10px;
+
+text-align:center;
+
+font-weight:700;
+
+transition:.35s;
+
+color:#fff;
+
 }
 
 .email{
-    background:#0d6efd;
+
+background:#007bff;
+
 }
 
 .whatsapp{
-    background:#25D366;
+
+background:#25D366;
+
 }
 
 .buttons a:hover{
-    transform:scale(1.05);
+
+transform:scale(1.05);
+
 }
+
+/* Contact */
 
 .contact{
-    text-align:center;
-    line-height:2;
-    margin-top:10px;
+
+margin-top:30px;
+
+padding-top:20px;
+
+border-top:1px solid rgba(255,255,255,.15);
+
+line-height:2;
+
 }
 
-.footer{
-    margin-top:25px;
-    text-align:center;
-    color:#ddd;
-    font-size:14px;
+.contact h3{
+
+margin-bottom:8px;
+
 }
 
 /* Animation */
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateX(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateX(80px);
+
 }
 
-/* Mobile */
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/* Responsive */
+
 @media(max-width:900px){
 
-.main{
-    flex-direction:column;
+.hero{
+
+justify-content:center;
+
+padding:20px;
+
 }
 
 .left{
-    display:none;
+
+display:none;
+
 }
 
 .right{
-    width:100%;
-    height:100%;
-    padding:20px;
+
+width:100%;
+
+margin:0;
+
 }
 
-.glass{
-    padding:25px;
-}
+.card{
 
-.features{
-    grid-template-columns:1fr;
-}
+padding:25px;
 
-.buttons{
-    flex-direction:column;
-}
-
-.logo{
-    font-size:30px;
 }
 
 h1{
-    font-size:24px;
+
+font-size:36px;
+
+}
+
+h2{
+
+font-size:20px;
+
+}
+
+.feature{
+
+grid-template-columns:1fr;
+
+}
+
+.buttons{
+
+flex-direction:column;
+
 }
 
 }
