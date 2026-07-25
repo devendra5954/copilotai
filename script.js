@@ -1,67 +1,44 @@
-// ======================================
-// copilotai.in Premium Landing Page
-// ======================================
 
-// Fade In
-window.addEventListener("load", () => {
-    document.body.style.opacity = "1";
-});
+// Page load animation
 
-// Smooth Background Effect
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("DOMContentLoaded", function(){
 
-    const x = e.clientX;
-    const y = e.clientY;
 
-    document.body.style.backgroundPosition =
-        `${50 + x / 200}px ${50 + y / 200}px`;
+    const card = document.querySelector(".sale-card");
 
-});
 
-// Button Glow
-const buttons = document.querySelectorAll(".buttons a");
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
 
-buttons.forEach(button => {
 
-    button.addEventListener("mouseenter", () => {
+    setTimeout(()=>{
 
-        button.style.boxShadow = "0 0 20px rgba(0,212,255,.45)";
 
-    });
+        card.style.transition = "all 1s ease";
 
-    button.addEventListener("mouseleave", () => {
+        card.style.opacity = "1";
 
-        button.style.boxShadow = "none";
+        card.style.transform = "translateY(0)";
 
-    });
+
+    },200);
+
+
 
 });
 
-// Typewriter Heading
-const heading = document.querySelector("h2");
 
-if (heading) {
 
-    const text = heading.innerText;
 
-    heading.innerHTML = "";
+// Button click effect
 
-    let i = 0;
+const button = document.querySelector(".contact a");
 
-    function typeWriter() {
 
-        if (i < text.length) {
+button.addEventListener("click", function(){
 
-            heading.innerHTML += text.charAt(i);
 
-            i++;
+    button.innerHTML = "Opening Email...";
 
-            setTimeout(typeWriter, 55);
 
-        }
-
-    }
-
-    typeWriter();
-
-}
+});
